@@ -1,0 +1,246 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	Autor: Plínio Manoel Oliveira
+	email: ti.plinio@gmail.com
+*/
+
+.perfil a{
+	font-style: normal;
+	text-decoration: none;
+	color: black;
+}
+
+.perfil a:hover{
+	text-decoration: underline;
+}
+
+h5{
+	margin: 10px 0;
+	padding: 0;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.alert_vincular {
+	color: red;
+	margin-top: 5px;
+	font-size: 12px;
+	position: relative;
+	float: left;
+}
+
+.blue_line{
+	background-image: url("img/bg_busca.png");
+	height: 1.5px;
+	margin-top: 10px;
+}
+
+.wh700{
+	width: 680px;
+}
+
+.div_quadro_sucesso{
+	position: relative;
+	border: solid 1px #2968B6;
+	background-color: white;
+	margin-top: 90px;
+	margin-bottom: 90px;
+	border-radius:6px;
+	box-shadow: 0 0 10px 10px #E6E7E8; 
+}
+
+.div_quadro_sucesso h3{
+	text-align: center;
+	font-size: 22px;
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 50px;
+	color: #2968B6;
+	margin-bottom: 0;
+}
+
+.div_quadro_sucesso h4{
+	text-align: center;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: italic;
+	color: black;
+	margin: 0;
+	margin-bottom: 50px;
+}
+
+.link_levar{
+	position: absolute;
+	background-color: #0882BA;
+	padding: 10px;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	border-radius: 5px; 
+	right: 0px;
+	top: 280px;
+}
+
+.link_levar:hover{
+	box-shadow: 0px 0px 5px 5px #D2D3D5;
+ 	font-style: italic;
+}
+
+.div_left_sobre{
+	position: relative;
+	float: left;
+	width: 680px;
+	margin-left: 160px;
+}
+
+.txt_sobre{
+	position: relative;
+	float: left;
+	font-size: 14px;
+	margin: 0;
+	text-align: justify;
+	color: #606062;
+	margin-bottom: 50px;
+}
+
+.img_sobre{
+	position: relative;
+	float: right;
+	margin-right: 10px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+.img_sobre2{
+	position: relative;
+	float: left;
+	margin-right: 10px;
+	margin-left: 0px;
+	margin-bottom: 20px;
+}
+
+.div_left_sobre h2{
+	font-size: 18px;
+}
+
+.div_left_sobre h2 span {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.page_navigation{
+	position: relative;
+	margin-bottom: 15px;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.page_navigation a{
+	font-size: 12px;
+	margin-right: 5px;
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+}
+
+.page_navigation .active_page{
+	background-color: #1575A8;
+	color: white;
+}
+
+.page_navigation a:hover{
+	background-color: #1575A8;
+	color: white;
+}
+
+.lista_empresas_paginate{
+	position: relative;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin: auto;
+	width: 780px;
+}
+
+.lista_empresas_paginate li{
+	position: relative;
+	border: dashed 1px #BDBFC1;
+	float: left;
+	width: 350px;
+	margin-right: 15px;
+	height: 170px;
+	margin-bottom: 15px;
+	padding: 5px;
+}
+
+.lista_empresas_paginate li img{
+	position: relative;
+	float: left;
+	width: 140px;
+	height: 170px;
+}
+
+.lista_empresas_paginate li p{
+	position: relative;
+	float: right;
+	width: 200px;
+	text-align: right;
+	font-size: 12px;
+	margin-top: 0;
+}
+
+.lista_empresas_paginate li a{
+	position: absolute;
+	float: right;
+	font-size: 12px;
+	color: white;
+	padding: 10px;
+	text-decoration: none;
+	top: 140px;
+	right: 5px;
+}
+
+.content_usuario_logado{
+	position: relative;
+	float:right;
+	background-color: white;
+	margin-top: 17px;
+	border-radius: 10px;
+	padding: 5px; 
+	text-align: right;
+	border: solid 1px #EDEDED;
+	box-shadow: 0 0 7px 7px #E6E7E8;
+}
+
+.content_usuario_logado strong{
+	font-size: 18px;
+}
+
+.content_usuario_logado a{
+	position: relative;
+	font-weight: normal;
+	text-decoration: none;
+	color: black;
+	text-shadow: -3px 3px 3px rgb(204, 204, 204);
+}
+
+.content_usuario_logado a:hover{
+	color: #0681B9;
+}
+
+.line_gray{
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #E6E7E8;
+	height: 1px;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+}
+
+
+
+

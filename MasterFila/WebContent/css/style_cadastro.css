@@ -1,0 +1,129 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	Autor: Plínio Manoel Oliveira
+	email: ti.plinio@gmail.com
+*/
+
+form{
+	position: relative;
+}
+
+form label{
+	position: relative;
+	float: left;
+	margin-top: 5px;
+}
+
+form label span{
+	font-weight: bold;
+	color: red;
+}
+
+form input[type=text], form input[type=password]{
+	position: relative;
+	float: left;
+	margin: 5px 5px 0 0px;
+	padding: 5px;
+	border: solid 1px #BDBFC1;
+}
+
+.submit{
+	position: relative;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-image: url("img/bg_busca.png");
+	color: white;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+
+.submit:hover{ 
+	background-image: url("img/bg_busc_hover.png");
+}
+
+/*Espaçamentos e Tamanhos*/
+
+.rspace10{
+	margin-right: 10px;
+}
+
+.rspace17{
+	margin-right: 17px;
+}
+
+.wh300{
+	width: 300px;
+}
+
+.wh150{
+	width: 150px;
+}
+
+.wh227{
+	width: 227px;
+}
+
+.wh225{
+	width: 225px;
+}
+
+.wh475{
+	width: 470px;
+}
+
+.wh150{
+	width: 150px;
+}
+
+.wh160{
+	width: 165px;
+}
+
+/*Style Forms*/
+
+.form_cadastro_cliente{
+	width: 500px;
+	margin-bottom: 50px;
+}
+
+.form_login{
+	width: 335px;
+	margin-bottom: 50px;
+}
+
+.form_login a{
+	position: relative;
+	float:left;
+	margin-top: 10px;
+	margin-left:2px;
+	color: black;
+	text-decoration: none;
+	text-shadow: -3px 3px 3px #CCCCCC;
+}
+
+.form_login a:hover{
+	color: #0681B9;
+}
+
+.form_login input[type=submit]{
+	position: relative;
+	float:right;
+	padding: 7px;
+	cursor: pointer;
+	margin-right: 7px;
+	background-image: url("img/bg_busca.png");
+	border: none;
+	margin-top: 5px;
+	color: white;
+}
+
+.form_login input[type=submit]:hover{
+	background-image: url("img/bg_busc_hover.png");	
+}
+
+.form_esqueci_senha{
+	width: 300px;
+	margin-top: 20px;
+}

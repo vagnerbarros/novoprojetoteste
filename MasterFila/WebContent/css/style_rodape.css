@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	Autor: Plínio Manoel Oliveira
+	email: ti.plinio@gmail.com
+*/
+
+footer{
+	position: relative;
+	background-image: url("img/bg_rodape.png");
+	background-repeat: repeat-x;
+	padding: 20px;
+}
+
+footer .limite p{
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	color: white;
+	text-align: center;
+	font-size: 12px;
+}
