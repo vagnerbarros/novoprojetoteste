@@ -1,0 +1,48 @@
+</span>
+					
+					<span class="content_guiche">
+					GUICHÊ<br/>
+					10
+					</span>
+					
+					<span class="data_chamada">Data: 17/04/2013 - Horário Chamada: 10:18 AM</span>
+					
+					<div class="clr"></div>
+				</div>
+				
+				<div class="quadro_estatistica">
+					
+					<h2>Estatísticas de Chamada</h2>
+					
+					Quadro de Estatísticas					
+					
+					<div class="clr"></div>
+				</div>
+				
+			</div>
+			
+			<div class="quadro_historico">
+				
+				<h2>Histórico (5 Últimas)</h2>
+				
+				<%  
+					for (int i=0; i<5; i++){
+				%>
+				
+				<span class="content_senha">
+				SENHA<br/>
+				P5683
+				</span>
+					
+				<span class="content_guiche">
+				GUICHÊ<br/>
+				15
+				</span>
+				
+				<%
+					}
+				%>
+				
+			</div>
+			
+			<div class="clr"></div>

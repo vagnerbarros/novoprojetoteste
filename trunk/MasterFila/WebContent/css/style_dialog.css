@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	Autor: Plínio Manoel Oliveira
+	email: ti.plinio@gmail.com
+*/
+
+#dialog_escolher_cidade {
+	position:static;
+	background-color: gray;
+}
+
+div.ui-dialog-titlebar{
+	position:relative;
+	height: 40px;
+	background-image: url("img/bg_title_dialog.png");
+}
+
+.ui-icon { width: 16px; height: 16px; background-image: url(img/ui-icons_222222_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(img/ui-icons_ffffff_256x240.png);}
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; font-size: 0px}
+.ui-dialog .ui-dialog-titlebar-close:hover { padding: 0; background: #FEFEFE url(img/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x; }
+.ui-icon-closethick { background-position: -96px -128px; }

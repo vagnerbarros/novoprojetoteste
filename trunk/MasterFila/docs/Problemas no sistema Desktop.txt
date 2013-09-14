@@ -1,0 +1,15 @@
+1 - quando clica no botão para listar os funcionários, o sistema vai direto para
+a tela de cadastro e não de listagem;
+
+2 - quando clica em "Incluir", no cadastro do funcionário, ele inclue mesmo com os
+campos vazios, não está levandando exceção;
+
+3 - o sistema está incluindo um tipo de atendimento vazio, não está levantando
+exceção;
+
+4 - o sistema está incluindo um box de atendimento vazio, não está levantando
+exceção;
+
+5 - quando chama o próximo da fila e não existe ficha, está repetindo a senha
+e o box no histórico;
+

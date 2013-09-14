@@ -1,0 +1,453 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	Autor: Plínio Manoel Oliveira
+	email: ti.plinio@gmail.com
+*/
+
+h4{
+	font-size: 20px;
+	font-weight: normal;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.menu{
+	position: relative;
+	border-bottom: solid 1px #D2D3D5;
+	border-top: solid 1px #D2D3D5;
+	height: 30px;
+	background-color: #FAFAFA;
+	margin-top: 7px;
+}
+
+.div_alerts{
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #FFF7F5;
+	padding: 10px;
+	border-radius: 10px;
+	border: solid 1px #CD0A0A; 
+	font-size: 12px;
+	min-width: 200px;
+	box-shadow: 0 0 3px 3px #E6E7E8;
+}
+
+.div_sucesso{
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #C5FF8A;
+	padding: 10px;
+	border-radius: 10px;
+	border: solid 1px #CD0A0A; 
+	font-size: 12px;
+	min-width: 200px;
+	box-shadow: 0 0 3px 3px #E6E7E8;
+}
+
+.div_alerts p{
+	display: none;
+}
+
+.div_alerts .link_close{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.div_alerts .link_close:hover{
+	box-shadow: 0 0 3px 3px #E6E7E8;
+}
+
+.img_load{
+	position: relative;
+	width: 400px;
+	margin-left: 200px;
+	margin-top: 20px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.lista_white{
+	position: relative;
+	background-color: white;
+	height: 1px;
+	margin-bottom: 30px;
+}
+
+.lista_menu{
+	position: relative;
+	float: left;
+	list-style: none;
+	margin-top: 6px;
+	margin-left: 110px;
+}
+
+.lista_menu li{
+	position: relative;
+	float: left;
+}
+
+.lista_menu li a{
+	text-decoration: none;
+	color: black;
+	border-right: solid 1px #D2D3D5;
+	padding: 3px 10px;
+}
+
+.lista_menu li a:hover{
+	text-decoration: none;
+	color: black;
+	background-color: #F1F1F2;
+}
+
+.content_login{
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+.content_leve_o_master{
+	position: relative;
+	border: solid 1px #D2D3D5;
+	margin-top: 15px;
+	width: 400px;
+}
+
+.content_leve_o_master p{
+	font-size: 18px;	
+	margin: 10px;
+	padding: 0;
+	position: relative;
+	float: right;
+	color: #0B89C4;
+	width: 375px;
+	text-align: right;
+}
+
+.content_leve_o_master a{
+	position: relative;
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+.content_leve_o_master a:hover{
+	color: #0B89C4;
+}
+
+.escolha_cidade_right h2{
+	color: #0B89C4;
+	font-size: 23px;
+	margin-bottom: 10px;
+	margin-top: 130px;
+}
+
+.escolha_cidade_right .form_cidade{
+	position: relative;
+}
+
+.escolha_cidade_left{
+	position: relative;
+	float: left;
+	border-right: dashed 2px #D2D3D5;
+	margin: 20px;
+	margin-left: 100px;
+	width: 450px;
+}
+
+.escolha_cidade_right{
+	position: relative;
+	float: right;
+	margin: 20px;
+	margin-right: 100px;
+	width: 300px;
+}
+
+.desc_empresa{
+	position: relative;
+	float: left;
+	text-align: center;
+	width: 447px;
+	border: solid 1px #D2D3D5;	
+	margin-left: 5px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	font-style: italic;
+	color: black;
+	padding: 5px;
+}
+
+.quadro_historico h2{
+	position: relative;
+	float: left;
+	margin: 5px;
+	padding: 0;
+	padding: 15px;
+	height: 30px;
+	font-size: 22px;
+	font-weight: normal;
+	background-image: url("img/bg_chamada.png");
+	color: white;
+	width: 87%;
+	text-align: center;
+}
+
+.content_chamada_senhas{
+	position: relative;
+	margin-top: 15px;
+	width: 800px;
+	margin: auto;
+}
+
+.quadro_chamada_atual{
+	position: relative;
+	border: dashed 1px #A9ABAE;
+	margin: 5px;
+}
+
+.quadro_estatistica{
+	position: relative;
+	border: dashed 1px #A9ABAE;
+	margin: 15px 5px;
+	height: 256px;
+}
+
+.quadro_historico{
+	position: relative;
+	float: right;
+	border: dashed 1px #A9ABAE;
+	width: 300px;
+	margin-top: 15px;
+	margin-right: 10px;
+	overflow: auto;
+}
+
+.quadro_estatistica h2{
+	position: relative;
+	float: left;
+	margin: 5px;
+	padding: 0;
+	padding: 15px;
+	height: 30px;
+	font-size: 22px;
+	font-weight: normal;
+	background-image: url("img/bg_chamada.png");
+	color: white;
+	width: 91.3%;
+	text-align: center;
+}
+
+.quadro_chamada_atual h2{
+	position: relative;
+	float: left;
+	margin: 5px;
+	padding: 0;
+	padding: 15px;
+	height: 30px;
+	font-size: 22px;
+	font-weight: normal;
+	background-image: url("img/bg_chamada.png");
+	color: white;
+	width: 91.3%;
+	text-align: center;
+}
+
+.quadro_historico .content_senha, .quadro_historico .content_guiche{
+	width: 47%;
+	font-size: 20px;
+}
+
+.quadro_chamada_atual .content_senha, .quadro_chamada_atual .content_guiche{
+	width: 48%;
+	font-size: 30px;
+}
+
+.content_senha, .content_guiche{
+	position: relative;
+	float: left;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	background-image: url("img/bg_chamada_senha.png");
+	border: solid 1px #D2D3D5;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.data_chamada{
+	position: relative;
+	float: left;
+	text-align: center;
+	width: 447px;
+	border: solid 1px #D2D3D5;	
+	margin-left: 5px;
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+	color: red;
+	padding: 5px;
+}
+
+.quadro_chamadas_estatistica{
+	position: relative;
+	float: left;
+	width: 480px;
+	height: 400px;
+	margin-top: 10px;
+}
+
+.listagem_empresas{
+	position: relative;
+	margin-top: 15px;
+	width: 700px;
+	margin: auto;
+}
+
+.listagem_empresas h4, .listagem_empresas h6{
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.limite_lista_categorias{
+	position: relative;
+	width: 720px;
+	margin-left: 200px;
+	margin-top: 15px;
+}
+
+.limite_lista_categorias h4{
+	position: relative;
+	padding: 0;
+	margin-top: 12px;
+	margin-left: -45px;
+	margin-bottom: 10px;
+}
+
+.lista_categorias{
+	position: relative;
+	float: left;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+	width: 230px;
+	margin-bottom: 30px;
+	margin-right: 10px;
+}
+
+.lista_categorias li{
+	margin-bottom: 5px;
+	float: left;
+	position: relative;
+	width: 230px;
+}
+
+.lista_categorias li a{
+	position:relative;
+	float:left;
+	height: 25px;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.lista_categorias li a:hover{
+	color: #006796;
+}
+
+.lista_categorias li a img{
+	position: relative;
+	float: left;
+	margin-right: 5px;
+	margin-top: -5px;
+}
+
+.content_busca{
+	position: relative;
+	height: 50px;
+	background-image: url("img/bg_busca.png");
+}
+
+.form_busca{
+	position: relative;
+	margin:auto;
+	top:7px;
+	font-size: 14px;		
+	width: 700px;
+}
+
+.form_busca label{
+	position:relative;
+	padding: 5px;
+	float: left;
+	color: white;
+	margin-right: 7px;
+	margin-top: 3px;
+}
+
+.form_busca input[type=text]{
+	position:relative;
+	padding: 5px;
+	float: left;
+	width: 550px;
+	margin-right: 7px;
+	padding-left: 30px;
+	background-image: url("img/icon_find.png");
+	background-repeat: no-repeat;
+	border: solid 1px #025E8A;
+	height: 20px;
+	margin-top: 2px;
+}
+
+.form_busca input[type=submit]{
+	position:relative;
+	padding: 5px;
+	float: left;
+	width: 100px;
+	height: 32px; 
+	cursor: pointer;
+	background: rgb(217,218,247); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(217,218,247,1) 0%, rgba(240,249,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(217,218,247,1)), color-stop(100%,rgba(240,249,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(217,218,247,1) 0%,rgba(240,249,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(217,218,247,1) 0%,rgba(240,249,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(217,218,247,1) 0%,rgba(240,249,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(217,218,247,1) 0%,rgba(240,249,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9daf7', endColorstr='#f0f9ff',GradientType=0 ); /* IE6-9 */
+	border: solid 1px #025E8A;
+	margin-top: 1.5px;
+}
+
+.form_busca input[type=submit]:hover{
+	background: rgb(240,249,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(240,249,255,1) 0%, rgba(217,218,247,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,249,255,1)), color-stop(100%,rgba(217,218,247,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(240,249,255,1) 0%,rgba(217,218,247,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(240,249,255,1) 0%,rgba(217,218,247,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(240,249,255,1) 0%,rgba(217,218,247,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(240,249,255,1) 0%,rgba(217,218,247,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#d9daf7',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
