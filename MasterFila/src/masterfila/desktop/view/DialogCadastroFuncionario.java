@@ -31,14 +31,16 @@ import javax.swing.event.ChangeListener;
 import masterfila.dominio.Perfil;
 import masterfila.entidade.Funcionario;
 import masterfila.exception.ConfirmacaoSenhaException;
+import masterfila.exception.CpfExistenteException;
 import masterfila.exception.LoginExistenteException;
 import masterfila.fachada.Fachada;
+import masterfila.mascaras.FPasswordField;
 import masterfila.mascaras.FTextFieldCpf;
 import masterfila.mascaras.FTextFieldNomeComNumeros;
 import masterfila.mascaras.FTextFieldNomeProprio;
-import masterfila.util.Data;
 import masterfila.util.Sessao;
 import masterfila.util.Tabela;
+import masterfila.util.Validacao;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -55,12 +57,13 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 	private JComboBox<String> comboFiltro;
 	private JTextField txtFiltro;
 	private JTextField txtLogin;
-	private JTextField txtSenha;
-	private JTextField txtConfirmarSenha;
+	private FPasswordField txtSenha;
+	private FPasswordField txtConfirmarSenha;
 	private JTextField txtCpf;
 	private JDateChooser txtDataNascimento;
 	private JTabbedPane tabbedPanePrincipal;
 	private Funcionario atualizacao;
+	private Validacao valida;
 	
 	public void setTabPrincipal(int index){
 		tabbedPanePrincipal.setSelectedIndex(index);
@@ -144,10 +147,10 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		txtNome = new FTextFieldNomeProprio(200);
 		txtNome.setColumns(10);
 		
-		JLabel lblNomeDoBox = new JLabel("Nome:");
+		JLabel lblNomeDoBox = new JLabel("* Nome :");
 		lblNomeDoBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		JLabel lblCpf = new JLabel("CPF:");
+		JLabel lblCpf = new JLabel("* CPF:");
 		lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel lblDataNascimento = new JLabel("Data Nascimento:");
@@ -167,14 +170,12 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 				.addGroup(gl_panel_6.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_6.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_6.createSequentialGroup()
-							.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel_6.createSequentialGroup()
-							.addComponent(lblNomeDoBox)
-							.addGap(313)
-							.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNomeDoBox))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel_6.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel_6.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblDataNascimento, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
@@ -187,14 +188,14 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 					.addContainerGap()
 					.addGroup(gl_panel_6.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNomeDoBox)
-						.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblDataNascimento, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblDataNascimento, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel_6.createParallelGroup(Alignment.LEADING)
 						.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtDataNascimento, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(73, Short.MAX_VALUE))
+					.addContainerGap(15, Short.MAX_VALUE))
 		);
 		panel_6.setLayout(gl_panel_6);
 		
@@ -211,19 +212,19 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		txtLogin = new FTextFieldNomeComNumeros(20);
 		txtLogin.setColumns(10);
 		
-		txtSenha = new FTextFieldNomeComNumeros(8);
+		txtSenha = new FPasswordField(8);
 		txtSenha.setColumns(10);
 		
-		txtConfirmarSenha = new FTextFieldNomeComNumeros(8);
+		txtConfirmarSenha = new FPasswordField(8);
 		txtConfirmarSenha.setColumns(10);
 		
-		JLabel lblLogin = new JLabel("Login:");
+		JLabel lblLogin = new JLabel("* Login:");
 		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		JLabel lblSenha = new JLabel("Senha:");
+		JLabel lblSenha = new JLabel("* Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		JLabel lblConfirmarSenha = new JLabel("Confirmar Senha:");
+		JLabel lblConfirmarSenha = new JLabel("* Confirmar Senha:");
 		lblConfirmarSenha.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GroupLayout gl_panel_7 = new GroupLayout(panel_7);
 		gl_panel_7.setHorizontalGroup(
@@ -244,7 +245,7 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel_7.createParallelGroup(Alignment.LEADING)
 						.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblConfirmarSenha, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblConfirmarSenha, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
 					.addGap(33))
 		);
 		gl_panel_7.setVerticalGroup(
@@ -262,9 +263,12 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 						.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtLogin, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(comboPerfil, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(62, Short.MAX_VALUE))
+					.addContainerGap(24, Short.MAX_VALUE))
 		);
 		panel_7.setLayout(gl_panel_7);
+		
+		JLabel lblOsCamposMarcados = new JLabel("Os campos marcados com (*) s\u00E3o obrigat\u00F3rios");
+		lblOsCamposMarcados.setForeground(Color.RED);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -273,19 +277,22 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, 749, GroupLayout.PREFERRED_SIZE)
 						.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
-						.addComponent(panel_7, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 749, GroupLayout.PREFERRED_SIZE))
+						.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 749, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblOsCamposMarcados, GroupLayout.PREFERRED_SIZE, 415, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		gl_panel_2.setVerticalGroup(
-			gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_panel_2.createSequentialGroup()
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(lblOsCamposMarcados)
+					.addGap(5)
+					.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-					.addGap(13)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(147, Short.MAX_VALUE))
+					.addContainerGap(12, Short.MAX_VALUE))
 		);
 		panel_2.setLayout(gl_panel_2);
 		
@@ -428,6 +435,9 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
+		
+		JTextField [] campos = new JTextField[] {txtNome, txtCpf, txtLogin, txtSenha, txtConfirmarSenha};
+		valida = new Validacao(campos);
 	}
 	
 	private void iniciarCombo(){
@@ -460,7 +470,25 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 
 		tabela.montarTabela(funcionarios);
 	}
-
+	
+	private boolean validar(){
+		boolean valido = false;
+		
+		valida.normalizarBordas();
+		valido = valida.verificarCamposPreenchidos();
+		
+		if(!valido){
+			JOptionPane.showMessageDialog(this, "Campos Obrigatórios não Preenchidos");
+		}
+		
+		if(valido){
+			if(!Validacao.cpfValido(txtCpf.getText())){
+				JOptionPane.showMessageDialog(this, "CPF Inválido");
+				valido = false;
+			}
+		}
+		return valido;
+	}
 	
 	private void cadastrar(){
 		
@@ -469,7 +497,11 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		Date dataNascimento = txtDataNascimento.getDate();
 		String perfil = (String) comboPerfil.getSelectedItem();
 		String login = txtLogin.getText();
+		
+		@SuppressWarnings("deprecation")
 		String senha = txtSenha.getText();
+		
+		@SuppressWarnings("deprecation")
 		String reSenha = txtConfirmarSenha.getText();
 		
 		Fachada fachada = Fachada.getInstance();
@@ -491,6 +523,8 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		} catch (ConfirmacaoSenhaException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		} catch (LoginExistenteException e) {
+			JOptionPane.showMessageDialog(this, e.getMessage());
+		} catch (CpfExistenteException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
 	}
@@ -524,6 +558,9 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 			txtSenha.setText(atualizacao.getSenha());
 			txtConfirmarSenha.setText(atualizacao.getSenha());
 		}
+		else{
+			JOptionPane.showMessageDialog(this, "Selecione o usuário para editar.");
+		}
 	}
 	
 	private void atualizar(){
@@ -532,7 +569,11 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		String cpf = txtCpf.getText();
 		Date dataNascimento = txtDataNascimento.getDate();
 		String perfil = (String) comboPerfil.getSelectedItem();
+		
+		@SuppressWarnings("deprecation")
 		String senha = txtSenha.getText();
+		
+		@SuppressWarnings("deprecation")
 		String reSenha = txtConfirmarSenha.getText();
 		
 		Fachada fachada = Fachada.getInstance();
@@ -550,6 +591,7 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 			limparCampos();
 			btnIncluir.setText("  Incluir");
 			txtLogin.setEditable(true);
+			txtCpf.setEditable(true);
 		} catch (ConfirmacaoSenhaException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
@@ -561,13 +603,16 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 
 		if(linha != -1){
 			Object[] options = { "OK", "Cancelar" };
-			int resposta = JOptionPane.showOptionDialog(null, "Tem certeza que deseja inativar o funcionário selecionado?", "Alerta !!", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+			int resposta = JOptionPane.showOptionDialog(null, "Tem certeza que deseja remover?", "Alerta !!", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			if(resposta == 0){
 				Funcionario f = (Funcionario) tabela.getModel().getValueAt(linha, 0);
 				Fachada fachada = Fachada.getInstance();
 				fachada.cadastroFuncionario().remover(f);
 				montarTabela();
 			}
+		}
+		else{
+			JOptionPane.showMessageDialog(this, "Selecione o usuário para remover.");
 		}
 	}
 
@@ -576,10 +621,14 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		if(elemento.equals(btnIncluir)){
 			String tipo = btnIncluir.getText();
 			if(tipo.equals("  Incluir")){
-				cadastrar();
+				if(validar()){
+					cadastrar();
+				}
 			}
 			else{
-				atualizar();
+				if(validar()){
+					atualizar();
+				}
 			}
 		}
 		else if(elemento.equals(btnCancelar)){
@@ -588,6 +637,7 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 		else if(elemento.equals(btnEditar)){
 			btnIncluir.setText("  Atualizar");
 			txtLogin.setEditable(false);
+			txtCpf.setEditable(false);
 			editar();
 		}
 		else if(elemento.equals(btnRemover)){
@@ -610,6 +660,7 @@ public class DialogCadastroFuncionario extends JDialog implements ActionListener
 				montarTabela();
 				btnIncluir.setText("  Incluir");
 				txtLogin.setEditable(true);
+				txtCpf.setEditable(true);
 			}
 			else if(tabbedPanePrincipal.getSelectedIndex() == 0){
 				limparCampos();

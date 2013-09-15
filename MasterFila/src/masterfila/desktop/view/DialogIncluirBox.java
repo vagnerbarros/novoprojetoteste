@@ -21,6 +21,8 @@ import javax.swing.border.EtchedBorder;
 import masterfila.entidade.Guiche;
 import masterfila.exception.NumeroGuicheExisteException;
 import masterfila.fachada.Fachada;
+import masterfila.mascaras.FTextFieldNomeComNumeros;
+import masterfila.util.Validacao;
 
 public class DialogIncluirBox extends JDialog implements ActionListener{
 
@@ -28,6 +30,7 @@ public class DialogIncluirBox extends JDialog implements ActionListener{
 	private JTextField txtNomeBox;
 	private JButton btnCancelar;
 	private JButton btnIncluir;
+	private Validacao valida;
 	
 	public DialogIncluirBox(){
 		setTitle("Box de Atendimento - Incluir");
@@ -50,7 +53,7 @@ public class DialogIncluirBox extends JDialog implements ActionListener{
 		//JLabel lblNomeDoBox = new JLabel("Nome do Box:");
 		lblNomeDoBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		txtNomeBox = new JTextField();
+		txtNomeBox = new FTextFieldNomeComNumeros(10);
 		txtNomeBox.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
@@ -149,6 +152,23 @@ public class DialogIncluirBox extends JDialog implements ActionListener{
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
+		
+		JTextField [] campos = {txtNomeBox};
+		valida = new Validacao(campos);
+	}
+	
+	private boolean validar(){
+		
+		boolean valido = false;
+		
+		valida.normalizarBordas();
+		valido = valida.verificarCamposPreenchidos();
+		
+		if(!valido){
+			JOptionPane.showMessageDialog(this, "Campo Obrigatório não Preenchido");
+		}
+		
+		return valido;
 	}
 	
 	private void cadastrar(){
@@ -175,7 +195,9 @@ public class DialogIncluirBox extends JDialog implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JComponent elemento = (JComponent) e.getSource();
 		if(elemento.equals(btnIncluir)){
-			cadastrar();
+			if(validar()){
+				cadastrar();
+			}
 		}
 		else if(elemento.equals(btnCancelar)){
 			this.dispose();

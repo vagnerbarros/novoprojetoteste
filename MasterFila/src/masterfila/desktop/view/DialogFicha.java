@@ -13,6 +13,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EtchedBorder;
 
 import masterfila.entidade.Ficha;
+import masterfila.util.Data;
 
 public class DialogFicha extends JDialog{
 
@@ -31,7 +32,7 @@ public class DialogFicha extends JDialog{
 		setModal(true);
 		
 		java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-		setBounds((screenSize.width-400)/2, (screenSize.height-400)/2, 295, 345);
+		setBounds((screenSize.width-400)/2, (screenSize.height-400)/2, 295, 310);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -42,13 +43,13 @@ public class DialogFicha extends JDialog{
 		JPanel panel_1 = new JPanel();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(10)
+					.addContainerGap()
 					.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-					.addGap(10))
-				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap())
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
 					.addContainerGap())
@@ -58,42 +59,45 @@ public class DialogFicha extends JDialog{
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(25, Short.MAX_VALUE))
 		);
 		panel_1.setLayout(null);
 		
 		JLabel lblEstabelecimento = new JLabel("Estabelecimento:");
-		lblEstabelecimento.setBounds(10, 11, 100, 15);
-		lblEstabelecimento.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblEstabelecimento.setBounds(10, 11, 211, 15);
+		lblEstabelecimento.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel_1.add(lblEstabelecimento);
 		
 		JLabel LBL_ESTABELECIMENTO = new JLabel(ficha.getCliente().getEmpresa().getNome());
+		LBL_ESTABELECIMENTO.setForeground(new Color(0, 153, 0));
 		LBL_ESTABELECIMENTO.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		LBL_ESTABELECIMENTO.setBounds(10, 37, 250, 15);
+		LBL_ESTABELECIMENTO.setBounds(63, 37, 175, 15);
 		panel_1.add(LBL_ESTABELECIMENTO);
 		panel_2.setLayout(null);
 		
 		JLabel label = new JLabel("Tipo de Atendimento:");
-		label.setBounds(10, 11, 122, 15);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label.setBounds(10, 11, 169, 15);
+		label.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel_2.add(label);
 		
 		JLabel LBL_TIPO = new JLabel(ficha.getTipo().getNome());
+		LBL_TIPO.setForeground(new Color(0, 153, 0));
 		LBL_TIPO.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		LBL_TIPO.setBounds(142, 12, 118, 15);
+		LBL_TIPO.setBounds(61, 35, 118, 15);
 		panel_2.add(LBL_TIPO);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblSenha.setBounds(10, 55, 64, 15);
+		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblSenha.setBounds(10, 61, 64, 15);
 		panel_2.add(lblSenha);
 		
 		JLabel LBL_SENHA = new JLabel(ficha.getNumero());
+		LBL_SENHA.setForeground(new Color(0, 153, 0));
 		LBL_SENHA.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		LBL_SENHA.setBounds(61, 56, 118, 15);
+		LBL_SENHA.setBounds(61, 87, 118, 15);
 		panel_2.add(LBL_SENHA);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -103,7 +107,7 @@ public class DialogFicha extends JDialog{
 		JLabel lblBoxDeAtendimento = new JLabel(ficha.getCliente().getNome());
 		lblBoxDeAtendimento.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		JLabel lblPreenchaOsDados = new JLabel(ficha.getData().toString());
+		JLabel lblPreenchaOsDados = new JLabel(Data.converterData(ficha.getData()) + "  " + Data.converterHora(ficha.getData()));
 		lblPreenchaOsDados.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(

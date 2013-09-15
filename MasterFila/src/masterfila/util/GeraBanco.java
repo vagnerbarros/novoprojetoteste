@@ -60,11 +60,11 @@ public class GeraBanco {
             fachada.cadastroUsuario().cadastrar(u);
             
             Funcionario f2 = new Funcionario();
-            f2.setCpf("0758.220.743-24");
+            f2.setCpf("758.220.743-24");
             f2.setData_nascimento(Data.converterData("10/10/10"));
             f2.setEmpresa(e);
             f2.setLogin("2");
-            f2.setNome("Plínio Manoel Gay da Silva");
+            f2.setNome("Plínio Manoel");
             f2.setPerfil(Perfil.ADMIN);
             f2.setSenha("2");
             fachada.cadastroFuncionario().cadastrar(f2);

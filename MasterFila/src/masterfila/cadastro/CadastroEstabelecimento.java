@@ -3,7 +3,6 @@ package masterfila.cadastro;
 import java.util.List;
 
 import masterfila.entidade.Estabelecimento;
-import masterfila.entidade.Funcionario;
 import masterfila.repositorio.RepositorioEstabelecimento;
 
 public class CadastroEstabelecimento {

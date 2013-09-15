@@ -7,6 +7,7 @@ import java.util.Date;
 public class Data {
 
 	private static SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+	private static SimpleDateFormat fmtHora = new SimpleDateFormat("hh:mm:ss");
 	
 	public static String getDataAtual(){
 		      
@@ -21,6 +22,14 @@ public class Data {
 		} catch (ParseException e) {
 			return null;
 		}
+	}
+	
+	public static String converterData(Date data){
+		return fmt.format(data);
+	}
+	
+	public static String converterHora(Date data){
+		return fmtHora.format(data);
 	}
 	
 	public static boolean isDataAtualEntre(String data1, String data2){

@@ -17,7 +17,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EtchedBorder;
@@ -25,6 +24,7 @@ import javax.swing.border.EtchedBorder;
 import masterfila.entidade.Funcionario;
 import masterfila.exception.LoginSenhaIncorretosException;
 import masterfila.fachada.Fachada;
+import masterfila.mascaras.FPasswordField;
 import masterfila.util.Sessao;
 
 public class DialogLogin extends JDialog implements ActionListener, KeyListener {
@@ -33,7 +33,7 @@ public class DialogLogin extends JDialog implements ActionListener, KeyListener 
 	private JTextField txtLogin;
 	private JButton btCancelar;
 	private JButton btConfirmar;
-	private JPasswordField txtSenha;
+	private FPasswordField txtSenha;
 
 	public DialogLogin(){
 		setTitle("Login");
@@ -63,7 +63,7 @@ public class DialogLogin extends JDialog implements ActionListener, KeyListener 
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-		txtSenha = new JPasswordField();
+		txtSenha = new FPasswordField(8);
 		txtSenha.addKeyListener(this);
 		txtSenha.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
