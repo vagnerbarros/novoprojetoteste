@@ -61,4 +61,14 @@ public class RepositorioFuncionario {
 			return false;
 		}
 	}
+
+	public boolean existeCpf(String cpf) {
+		Funcionario retorno = (Funcionario) dao.buscarPorChaveUnicaString(Funcionario.class, cpf, "cpf");
+		if(retorno != null){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }

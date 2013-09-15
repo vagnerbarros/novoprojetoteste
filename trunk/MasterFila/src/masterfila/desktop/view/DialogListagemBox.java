@@ -136,6 +136,7 @@ public class DialogListagemBox extends JDialog implements ActionListener{
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
+		
 	}
 	
 	private void remover(){
@@ -155,6 +156,9 @@ public class DialogListagemBox extends JDialog implements ActionListener{
 				tabela.montarTabela(fachada.cadastroGuiche().listar());
 				}
 			}
+		}
+		else{
+			JOptionPane.showMessageDialog(this, "Selecione o box para remover.");
 		}
 	}
 

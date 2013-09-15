@@ -2,6 +2,9 @@ package masterfila.dao;
 
 import java.util.List;
 
+import masterfila.util.Constants;
+import masterfila.util.HibernateUtil;
+
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -9,8 +12,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import masterfila.util.Constants;
-import masterfila.util.HibernateUtil;
 
 public class Dao {
 	

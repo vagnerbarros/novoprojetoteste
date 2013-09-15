@@ -147,6 +147,9 @@ public class DialogListagemTiposAtendimento extends JDialog implements ActionLis
 				tabela.montarTabela(fachada.cadastroTipoFicha().listar());
 			}
 		}
+		else{
+			JOptionPane.showMessageDialog(this, "Selecione o atendimento para remover.");
+		}
 	}
 	
 	public void actionPerformed(ActionEvent e) {

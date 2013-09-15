@@ -22,14 +22,17 @@ import masterfila.entidade.TipoFicha;
 import masterfila.exception.FilaExistenteException;
 import masterfila.exception.TipoAtendimentoExisteException;
 import masterfila.fachada.Fachada;
+import masterfila.mascaras.FTextFieldNomeProprio;
 import masterfila.util.GerenciadorArquivo;
+import masterfila.util.Validacao;
 
 public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txtNomeBox;
+	private JTextField txtTipoAtendimento;
 	private JButton btnCancelar;
 	private JButton btnIncluir;
+	private Validacao valida;
 	
 	public DialogIncluirTipoDeAtendimento(){
 		setTitle("Tipo de Atendimento - Incluir");
@@ -38,7 +41,8 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 	}
 	
 	private void initComponents(){
-		
+	
+		setModal(true);
 		java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width-400)/2, (screenSize.height-300)/2, 400, 222);
 		
@@ -49,8 +53,8 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 		JLabel lblNomeDoBox = new JLabel("Tipo de Atendimento:");
 		lblNomeDoBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		txtNomeBox = new JTextField();
-		txtNomeBox.setColumns(10);
+		txtTipoAtendimento = new FTextFieldNomeProprio(30);
+		txtTipoAtendimento.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -61,7 +65,7 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 					.addGap(26)
 					.addComponent(lblNomeDoBox)
 					.addGap(18)
-					.addComponent(txtNomeBox, GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+					.addComponent(txtTipoAtendimento, GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
 					.addContainerGap())
 				.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
 				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
@@ -77,7 +81,7 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 							.addComponent(lblNomeDoBox))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(18)
-							.addComponent(txtNomeBox, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(txtTipoAtendimento, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
 					.addGap(18)
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
 		);
@@ -148,11 +152,28 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
+		
+		JTextField [] campos = {txtTipoAtendimento};
+		valida = new Validacao(campos);
+	}
+	
+	private boolean validar(){
+		
+		boolean valido = false;
+		
+		valida.normalizarBordas();
+		valido = valida.verificarCamposPreenchidos();
+		
+		if(!valido){
+			JOptionPane.showMessageDialog(this, "Campo Obrigatório não Preenchido");
+		}
+		
+		return valido;
 	}
 	
 	private void cadastrar(){
 		
-		String nome = txtNomeBox.getText();
+		String nome = txtTipoAtendimento.getText();
 		
 		TipoFicha tipo = new TipoFicha();
 		tipo.setNome(nome);
@@ -172,13 +193,15 @@ public class DialogIncluirTipoDeAtendimento extends JDialog implements ActionLis
 	
 	private void limparCampos(){
 		
-		txtNomeBox.setText("");
+		txtTipoAtendimento.setText("");
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		JComponent elemento = (JComponent) e.getSource();
 		if(elemento.equals(btnIncluir)){
-			cadastrar();
+			if(validar()){
+				cadastrar();
+			}
 		}
 		else if(elemento.equals(btnCancelar)){
 			this.dispose();

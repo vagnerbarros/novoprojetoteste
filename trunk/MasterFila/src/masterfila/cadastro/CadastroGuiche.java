@@ -3,7 +3,6 @@ package masterfila.cadastro;
 import java.util.List;
 
 import masterfila.dominio.SituacaoGuiche;
-import masterfila.entidade.Estabelecimento;
 import masterfila.entidade.Guiche;
 import masterfila.exception.NumeroGuicheExisteException;
 import masterfila.repositorio.RepositorioGuiche;

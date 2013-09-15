@@ -4,6 +4,7 @@ import java.util.List;
 
 import masterfila.entidade.Funcionario;
 import masterfila.exception.ConfirmacaoSenhaException;
+import masterfila.exception.CpfExistenteException;
 import masterfila.exception.LoginExistenteException;
 import masterfila.exception.LoginSenhaIncorretosException;
 import masterfila.repositorio.RepositorioFuncionario;
@@ -22,10 +23,16 @@ public class CadastroFuncionario {
 		}
 	}
 	
-	public void cadastrar(Funcionario novo) throws LoginExistenteException{
+	public void cadastrar(Funcionario novo) throws LoginExistenteException, CpfExistenteException{
 		boolean existeLogin = rep.existeLogin(novo.getLogin());
 		if(!existeLogin){
-			rep.inserir(novo);
+			boolean existeCpf = rep.existeCpf(novo.getCpf());
+			if(!existeCpf){
+				rep.inserir(novo);
+			}
+			else{
+				throw new CpfExistenteException();
+			}
 		}
 		else{
 			throw new LoginExistenteException();
