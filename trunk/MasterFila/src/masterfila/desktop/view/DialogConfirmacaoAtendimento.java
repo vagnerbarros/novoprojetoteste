@@ -29,7 +29,7 @@ import masterfila.fachada.Fachada;
 import masterfila.util.GerenciadorArquivo;
 import masterfila.util.Sessao;
 
-public class DialogConfirmaçãoAtendimento extends JDialog implements ActionListener, WindowListener{
+public class DialogConfirmacaoAtendimento extends JDialog implements ActionListener, WindowListener{
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblTipoFicha;
@@ -45,7 +45,7 @@ public class DialogConfirmaçãoAtendimento extends JDialog implements ActionListe
 	private ViewChamadaSenha viewChamada;
 	private GerenciadorArquivo gerenciador;
 
-	public DialogConfirmaçãoAtendimento(Guiche guiche, TipoFicha tipoFicha){
+	public DialogConfirmacaoAtendimento(Guiche guiche, TipoFicha tipoFicha){
 		this.addWindowListener(this);
 		setTitle("Atendimento");
 		this.guiche = guiche;
@@ -129,15 +129,15 @@ public class DialogConfirmaçãoAtendimento extends JDialog implements ActionListe
 
 		btnFinalizar = new JButton("  Finalizar");
 		btnFinalizar.addActionListener(this);
-		btnFinalizar.setIcon(new ImageIcon(DialogConfirmaçãoAtendimento.class.getResource("/masterfila/desktop/view/img/cancel.png")));
+		btnFinalizar.setIcon(new ImageIcon(DialogConfirmacaoAtendimento.class.getResource("/masterfila/desktop/view/img/cancel.png")));
 
 		btnRepetir = new JButton("  Chamar Novamente");
 		btnRepetir.addActionListener(this);
-		btnRepetir.setIcon(new ImageIcon(DialogConfirmaçãoAtendimento.class.getResource("/masterfila/desktop/view/img/refresh.png")));
+		btnRepetir.setIcon(new ImageIcon(DialogConfirmacaoAtendimento.class.getResource("/masterfila/desktop/view/img/refresh.png")));
 
 		btnChamar = new JButton("  Chamar");
 		btnChamar.addActionListener(this);
-		btnChamar.setIcon(new ImageIcon(DialogConfirmaçãoAtendimento.class.getResource("/masterfila/desktop/view/img/add.png")));
+		btnChamar.setIcon(new ImageIcon(DialogConfirmacaoAtendimento.class.getResource("/masterfila/desktop/view/img/add.png")));
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 				gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -165,7 +165,7 @@ public class DialogConfirmaçãoAtendimento extends JDialog implements ActionListe
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setIcon(new ImageIcon(DialogConfirmaçãoAtendimento.class.getResource("/masterfila/desktop/view/img/icon_atendimentoBig.png")));
+		lblNewLabel.setIcon(new ImageIcon(DialogConfirmacaoAtendimento.class.getResource("/masterfila/desktop/view/img/icon_atendimentoBig.png")));
 
 		JLabel lblBoxDeAtendimento = new JLabel("Realizando Atendimento");
 		lblBoxDeAtendimento.setFont(new Font("Tahoma", Font.BOLD, 14));

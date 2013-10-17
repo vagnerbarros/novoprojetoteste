@@ -7,6 +7,7 @@
 			<li> <a href="sobre.jsp">Sobre</a> </li>
 			<li> <a href="perfil.jsp">Meu Perfil</a> </li>
 			<li> <a href="gestao_de_clientes_minha_empresa.jsp">Gestão de Clientes</a> </li>
+			<li> <a href="gestao_empresa.jsp">Gestão de Empresas</a> </li>
 		</ul>
 		
 	</div>
