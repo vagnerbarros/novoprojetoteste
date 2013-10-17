@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="masterfila.entidade.Usuario"%>
 <%@page import="masterfila.util.Constants"%>
 <%@page import="com.sun.corba.se.impl.orbutil.closure.Constant"%>
@@ -20,7 +19,30 @@
 <script type="text/javascript">
 
 			$(function(){
-
+				
+				$('#link_acesso_adm').click(function(){
+					$('#ctn_login_adm').animate({
+						top: 0,
+					});
+					$('#aba_login-adm').animate({
+						top: 120,
+					});
+					document.getElementById('link_fechar_acesso_adm').style.display = "block";
+					document.getElementById('link_acesso_adm').style.display = "none";
+				});
+				
+				
+				$('#link_fechar_acesso_adm').click(function(){
+					$('#ctn_login_adm').animate({
+						top: -120,
+					});
+					$('#aba_login-adm').animate({
+						top: 0,
+					});
+					document.getElementById('link_fechar_acesso_adm').style.display = "none";
+					document.getElementById('link_acesso_adm').style.display = "block";
+				});
+				
 				// Dialog
 				$('#dialog').dialog({
 					modal: true,
@@ -46,6 +68,17 @@
 
 </head>
 <body>
+	
+	<div class="limite">
+		<div class="ctn_login-adm" id="ctn_login_adm">
+			<%@ include file="componente_login.jsp"%>
+		</div>
+		<div class="aba_login-adm" id="aba_login-adm">
+			<a href="#" id="link_fechar_acesso_adm" style="display: none;">Fechar Aba</a>
+			<a href="#" id="link_acesso_adm">Acesso Administrativo</a>
+			
+		</div>
+	</div>
 	
 	<!-- ui-dialog -->
 	<div id="dialog" title="Alterar Cidade">
@@ -102,8 +135,6 @@
 			
 			<div class="right_topo">
 				
-				<%@ include file="componente_login.jsp"%>
-							
 			</div>
 			
 		</div>

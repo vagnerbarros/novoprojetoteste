@@ -188,7 +188,7 @@ public class DialogRealizarAtendimento extends JDialog implements ActionListener
 		Fachada fachada = Fachada.getInstance();
 		
 		fachada.cadastroGuiche().fecharGuiche(guiche);
-		DialogConfirmaçãoAtendimento d = new DialogConfirmaçãoAtendimento(guiche, tipoFicha);
+		DialogConfirmacaoAtendimento d = new DialogConfirmacaoAtendimento(guiche, tipoFicha);
 		this.dispose();
 		d.setVisible(true);
 	}

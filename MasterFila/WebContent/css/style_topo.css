@@ -125,6 +125,45 @@ body{
 	color: #006796;
 }
 
+.aba_login-adm{
+	position: absolute;
+	top:0;
+	right: 0;
+	height:50px;
+	width:120px;
+	background-color: #056896;
+	z-index: 1000000;
+	border-radius: 0 0 10px 10px; 
+}
+
+#link_fechar_acesso_adm{
+	margin-top: 10px;
+}
+
+.aba_login-adm a{
+	text-align: center;
+	color: white;
+	float: left;
+	width: 100px;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.aba_login-adm a:hover{
+	font-weight: bold;
+}
+
+.ctn_login-adm{
+	position: absolute;
+	right: 0;
+	top:-120px;
+	height:120px;
+	width:350px;
+	background-color: #056896;
+	z-index: 1000000;
+	border-radius: 0 0 0 10px; 
+}
+
 header{
 	position: relative;
 	border-top: solid 10px #056896;
