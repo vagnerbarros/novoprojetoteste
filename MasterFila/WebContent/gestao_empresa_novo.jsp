@@ -75,22 +75,22 @@
 		
 		<div class="blue_line"></div>
 		
-		<form class="form_cadastra_empresa" name="form_cadastra_empresa" id="form_cadastra_empresa">
-			
+		<form method="POST" action="controlador" class="form_cadastra_empresa" name="form_cadastra_empresa" id="form_cadastra_empresa">
+			<input type="hidden" name="acao" value="cadastrar_empresa">
 			<label class="wh150">CNPJ:</label>
 			<label class="wh300">Razão Social:</label>
 			
-			<input type="text" class="wh150" maxlength="18" onkeypress="mascara(this,cnpj)" id="txtCNPJ"/>
-			<input type="text" class="wh300" maxlength="100" id="txtRazao"/>
+			<input name="cnpj" type="text" class="wh150" maxlength="18" onkeypress="mascara(this,cnpj)" id="txtCNPJ"/>
+			<input name="razao" type="text" class="wh300" maxlength="100" id="txtRazao"/>
 			
 			<label class="wh300">Nome que aparecerá no Master Fila:</label>
-			<input type="text" class="wh455" maxlength="100" id="txtNomeAparecer"/>
+			<input type="text" name="nome" class="wh455" maxlength="100" id="txtNomeAparecer"/>
 			
 			<label class="wh300">Email:</label>
-			<input type="text" class="wh455" maxlength="100" id="txtEmail"/>
+			<input type="text" name="email" class="wh455" maxlength="100" id="txtEmail"/>
 
 			<label class="wh455">Categoria:</label>
-			<select id="selCategoria">
+			<select id="selCategoria" name="categoria">
 				<option value="0">.: Selecione :.</option>
 				<option value="consultorio">Consultório Médico</option>
 				<option value="cartorio">Cartório</option>
@@ -104,16 +104,17 @@
 			<input type="file" class="wh300" name="foto"/>
 				
 			<label class="wh455">Endereço (Rua - Nº - Bairro):</label>
-			<input type="text" class="wh455" id="txtEndereco"/>
+			<input type="text" name="endereco" class="wh455" id="txtEndereco"/>
 			
 			<label class="wh225">Estado:</label>
 			<label class="wh225">Cidade:</label>
 			
-			<select class="wh225" id="sel_estado">
+			<select class="wh225" id="sel_estado" name="estado" >
 				<option value="0">.: Selecione :.</option>
 				<option value="pernambuco">Pernambuco</option>
 			</select>
-			<select class="wh225" id="sel_cidade">
+			
+			<select class="wh225" id="sel_cidade" name="cidade">
 				<option value="0">.: Selecione :.</option>
 				<option value="caruaru">Caruaru</option>
 				<option value="recife">Recife</option>

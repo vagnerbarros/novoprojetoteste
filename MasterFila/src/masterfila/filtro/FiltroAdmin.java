@@ -9,18 +9,23 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import masterfila.dominio.Perfil;
+import masterfila.entidade.Funcionario;
 
 
 /**
  * Servlet Filter implementation class AutenticacaoInscrito
  */
-@WebFilter("/AutenticacaoInscrito")
-public class InscritoFiltro implements Filter {
+@WebFilter(urlPatterns={"/gestao_empresa_novo.jsp", "/gestao_empresa.jsp"})
+public class FiltroAdmin implements Filter {
 
     /**
      * Default constructor. 
      */
-    public InscritoFiltro() {
+    public FiltroAdmin() {
         // TODO Auto-generated constructor stub
     }
 
@@ -36,20 +41,20 @@ public class InscritoFiltro implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse resp = (HttpServletResponse) response;
 		
-//		try{
-//			Inscrito inscritoAutenticado = (Inscrito) sessao.getAttribute("inscrito_autenticado");
-//			
-//			if(inscritoAutenticado!=null){
-//				chain.doFilter(request, response);			
-//			}else{
-//				resp.sendRedirect("../index.jsp");
-//			}			
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
-		
-		
+		try{
+			Funcionario funcionario = (Funcionario) req.getSession().getAttribute("usuario");
+			
+			if(funcionario !=null && funcionario.getPerfil().equals(Perfil.ADMIN)){
+				chain.doFilter(request, response);			
+			}else{
+				resp.sendRedirect("index.jsp");
+			}			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	/**

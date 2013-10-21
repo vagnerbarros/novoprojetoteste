@@ -30,6 +30,14 @@ public class RepositorioUsuario {
 		return (List<Usuario>) dao.criarQuery("FROM usuario WHERE status <> '" + Constants.INATIVO + "'");
 	}
 	
+	public List<Usuario> listarPorEmpresaAtivos(long id_empresa){
+		return (List<Usuario>) dao.criarQuery("FROM usuario WHERE id_empresa = " + id_empresa + " AND status <> '" + Constants.INATIVO + "'");
+	}
+	
+	public List<Usuario> listarPorEmpresaInativos(long id_empresa){
+		return (List<Usuario>) dao.criarQuery("FROM usuario WHERE id_empresa = " + id_empresa + " AND status <> '" + Constants.ATIVO + "'");
+	}
+	
 	public void remover(Usuario del){
 		del.setStatus(Constants.INATIVO);
 		dao.atualizarObjeto(del);

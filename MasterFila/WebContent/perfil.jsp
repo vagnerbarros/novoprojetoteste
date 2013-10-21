@@ -32,8 +32,8 @@
 			
 			<br/>
 			
-			<strong>Email:</strong>
-			<span>${usuario.bairro}</span>
+			<strong>Data de Nascimento:</strong>
+			<span>${usuario.data_nascimento}</span>
 			
 			<br/>
 			

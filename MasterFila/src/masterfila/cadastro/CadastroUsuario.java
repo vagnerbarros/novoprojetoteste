@@ -2,6 +2,7 @@ package masterfila.cadastro;
 
 import java.util.List;
 
+import masterfila.entidade.Estabelecimento;
 import masterfila.entidade.Usuario;
 import masterfila.repositorio.RepositorioUsuario;
 import masterfila.util.Criptografia;
@@ -35,5 +36,13 @@ public class CadastroUsuario {
 	public Usuario logar(String login, String senha) {
 		senha = Criptografia.encryptPassword(senha);
 		return rep.logar(login, senha);
+	}
+	
+	public List<Usuario> listarPorEmpresaAtivos(Estabelecimento e){
+		return rep.listarPorEmpresaAtivos(e.getId());
+	}
+	
+	public List<Usuario> listarPorEmpresaInativos(Estabelecimento e){
+		return rep.listarPorEmpresaInativos(e.getId());
 	}
 }
