@@ -1,3 +1,4 @@
+<%@page import="masterfila.entidade.Funcionario"%>
 <%@page import="masterfila.entidade.Usuario"%>
 <%@page import="java.util.List"%>
 <%@page import="masterfila.util.Constants"%>
@@ -5,8 +6,8 @@
 <div class="content_login">
 		
 		<%
-			Usuario u = (Usuario) session.getAttribute("usuario");
-			if(u == null){
+			Funcionario f = (Funcionario) session.getAttribute("usuario");
+			if(f == null){
 			%>
 				
 				<form action="controlador" method="POST" class="form_login"> 

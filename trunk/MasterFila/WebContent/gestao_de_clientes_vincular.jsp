@@ -1,3 +1,4 @@
+<%@page import="masterfila.fachada.Fachada"%>
 <%@ include file="topo.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,6 +64,10 @@
 	
 	<%@ include file="menu.jsp"%>
 	
+	<%
+	List<Usuario> pendentes = Fachada.getInstance().cadastroUsuario().listarPorEmpresaInativos(funcionario.getEmpresa());
+	%>
+	
 	<div class="limite wh700">
 
 		<h4>Gestão de Clientes</h4>
@@ -102,22 +107,16 @@
 						
 						<!-- O FOR DEVE COMEÇAR AQUI -->
 						
-						<tr>
-							<td class="read_only" align="center">101.004.934-83</td>
-							<td>Plínio Manoel Oliveira Silva</td>
-							<td align="center">ti.plinio@gmail.com</td>
-							<td align="center">pliniomos</td>
-							<td align="center"> <a href="#"> <img alt="" src="css/img/icons/icon_on.png" height="16"/> </a> </td>
-						</tr>
-
-						<tr>
-							<td class="read_only" align="center">280.680.254-72</td>
-							<td>José Manoel da Silva Sobrinho</td>
-							<td align="center">leonartplacas@gmail.com</td>
-							<td align="center">leonart</td>
-							<td align="center"> <a href="#"> <img alt="" src="css/img/icons/icon_on.png" height="16"/> </a> </td>
-						</tr>
-						
+						<%for (Usuario usuario : pendentes){ %>
+							<tr>
+								<td class="read_only" align="center"><%=usuario.getCpf() %></td>
+								<td><%=usuario.getNome() %></td>
+								<td align="center"><%=usuario.getBairro() %></td>
+								<td align="center"><%=usuario.getLogin() %></td>
+								<td align="center"> <a href="#"> <img alt="" src="css/img/icons/icon_on.png" height="16"/> </a> </td>
+							</tr>
+						<%} %>
+					
 						<!-- O FOR DEVE TERMINAR AQUI -->
 						
 					</tbody>

@@ -16,12 +16,4 @@
     <servlet-name>Servlet</servlet-name>
     <url-pattern>/master</url-pattern>
   </servlet-mapping>
-  <filter>
-    <filter-name>InscritoFiltro</filter-name>
-    <filter-class>masterfila.filtro.InscritoFiltro</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>InscritoFiltro</filter-name>
-    <url-pattern>/inscrito/*</url-pattern>
-  </filter-mapping>
 </web-app>

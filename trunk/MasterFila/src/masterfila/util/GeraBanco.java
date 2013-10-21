@@ -45,8 +45,8 @@ public class GeraBanco {
             fachada.cadastroFuncionario().cadastrar(f);
 
             Usuario u = new Usuario();
-            u.setNome("SolicitaÃ§Ã£o Local");
-            u.setBairro("Bairro");
+            u.setNome("Solicitação Local");
+            u.setBairro("local@gmail.com");
             u.setCep("CEP");
             u.setCidade("Cidade");
             u.setCpf("CPF");
@@ -64,7 +64,7 @@ public class GeraBanco {
             f2.setData_nascimento(Data.converterData("10/10/10"));
             f2.setEmpresa(e);
             f2.setLogin("2");
-            f2.setNome("Plï¿½nio Manoel");
+            f2.setNome("Plinio Manoel");
             f2.setPerfil(Perfil.ADMIN);
             f2.setSenha("2");
             fachada.cadastroFuncionario().cadastrar(f2);
