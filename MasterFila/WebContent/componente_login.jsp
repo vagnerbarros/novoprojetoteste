@@ -21,6 +21,10 @@
 				</form>
 			<%
 			}
+			else{ %>
+				<label>Bem Vindo! <%=f.getNome() %></label><br><br>
+				<a href="controlador?acao=logout">Deslogar</a>
+			<% }
 			%>
 		<div class="clr"></div>
 </div>

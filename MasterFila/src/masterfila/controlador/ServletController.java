@@ -18,6 +18,7 @@ import masterfila.model.CadastrarEmpresa;
 import masterfila.model.Editar;
 import masterfila.model.Erro;
 import masterfila.model.EscolherCategoria;
+import masterfila.model.InativaEmpresa;
 import masterfila.model.ListarEmpresa;
 import masterfila.model.LogOut;
 import masterfila.model.Logar;
@@ -52,6 +53,7 @@ public class ServletController extends HttpServlet {
 		mapa.put("recuperar_email", new RecuperarEmail());
 		mapa.put("logout", new LogOut());
 		mapa.put("cadastrar_empresa", new CadastrarEmpresa());
+		mapa.put("inativar_empresa", new InativaEmpresa());
 		
 		mapa.put("erro", new Erro());
 		mapa.put("listarEmpresas", new ListarEmpresa());

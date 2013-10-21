@@ -30,8 +30,21 @@ public class RepositorioEstabelecimento {
 	}
 	
 	public void remover(Estabelecimento del){
-		del.setStatus(Constants.INATIVO);
-		dao.atualizarObjeto(del);
+		Estabelecimento e = buscarPorId(del.getId());
+		if(e != null){			
+			e.setStatus(Constants.INATIVO);
+			dao.atualizarObjeto(e);
+		}
+	}
+	
+	public Estabelecimento buscarPorId(long id){
+		List<Estabelecimento> lista = (List<Estabelecimento>) dao.criarQuery("FROM estabelecimento WHERE id = " + id + " AND status <> '" + Constants.INATIVO + "'");
+		if(lista != null){
+			return lista.get(0);
+		}
+		else{
+			return null;
+		} 
 	}
 
 	public List<Estabelecimento> listarCategoria(String categoria) {

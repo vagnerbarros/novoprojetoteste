@@ -23,26 +23,26 @@ public class Funcionario implements Entidade{
 	@JoinColumn(name = "id_empresa")
 	private Estabelecimento estabelecimento;
 	
-	@Column(name = "nome", length = 200, nullable = false)
+	@Column(name = "nome", length = 200, nullable = true)
 	private String nome;
 	
-	@Column(name = "cpf", length = 20, nullable = false)
+	@Column(name = "cpf", length = 20, nullable = true)
 	private String cpf;
 	
 	@Column(name="data_nascimento")
 	@Temporal(TemporalType.DATE)
 	private Date data_nascimento;
 	
-	@Column(name = "perfil", length = 50, nullable = false)
+	@Column(name = "perfil", length = 50, nullable = true)
 	private String perfil;
 	
-	@Column(name = "login", length = 20, nullable = false)
+	@Column(name = "login", length = 50, nullable = true)
 	private String login;
 	
-	@Column(name = "senha", length = 50, nullable = false)
+	@Column(name = "senha", length = 50, nullable = true)
 	private String senha;
 	
-	@Column(name = "status", length = 10, nullable = false)
+	@Column(name = "status", length = 10, nullable = true)
 	private String status;
 
 	public Long getId() {
