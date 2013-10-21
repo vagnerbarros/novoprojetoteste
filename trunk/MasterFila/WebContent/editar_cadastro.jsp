@@ -45,10 +45,10 @@
 				<input type="text" id="txtNome" name="nome" value="${usuario.nome}" class="wh300" onKeyPress="return VerificaNomeProprio(event);" />
 				
 				<label class="wh300 rspace17"> CPF: <span>*</span></label>
-				<input type="text" id="txtCpf" name="cpf" value="${usuario.cpf}" class="wh300" readonly="readonly"/>
+				<input type="text" id="txtCpf" name="cpf" value="${usuario.cpf}" class="wh300" />
 								
 				<label class="wh300 rspace17"> Login: <span>*</span></label>
-				<input type="text" id="txtLogin" name="login" value="${usuario.login}" class="wh300" readonly="readonly"/>
+				<input type="text" id="txtLogin" name="login" value="${usuario.login}" class="wh300"/>
 				
 				<label class="wh455">Senha: <span>*</span> </label>
 				<input type="password" name="senha" id="txtSenha" class="wh300"/>

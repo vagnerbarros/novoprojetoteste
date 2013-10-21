@@ -12,10 +12,14 @@ public class Editar implements Acao{
 	public String executar(HttpServletRequest request, HttpServletResponse response) {
 		
 		String nome = request.getParameter("nome");
+		String cpf = request.getParameter("cpf");
+		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
 		Funcionario funcionario = (Funcionario) request.getSession().getAttribute("usuario");
 		funcionario.setNome(nome);
+		funcionario.setCpf(cpf);
+		funcionario.setLogin(login);
 		funcionario.setSenha(senha);
 		
 		Fachada fachada = Fachada.getInstance();

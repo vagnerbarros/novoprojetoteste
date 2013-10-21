@@ -1,3 +1,5 @@
+<%@page import="masterfila.fachada.Fachada"%>
+<%@page import="masterfila.entidade.Estabelecimento"%>
 <%@ include file="topo.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,6 +65,10 @@
 	
 	<%@ include file="menu.jsp"%>
 	
+	<%
+	List<Estabelecimento> empresas = Fachada.getInstance().cadastroEmpresa().listar();
+	%>
+	
 	<div class="limite wh700">
 
 		<h4>Gestão de Empresas</h4>
@@ -98,17 +104,15 @@
 					</tfoot>
 					<tbody>
 						
-						<!-- O FOR DEVE COMEÇAR AQUI -->
-						
-						<tr>
-							<td class="read_only" align="center">24.300.915.0001/80</td>
-							<td>Razão Social da Empresa</td>
-							<td align="center">empresa@gmail.com</td>
-							<td align="center">empresa</td>
-							<td align="center"> <a href="#"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
-						</tr>
-						
-						<!-- O FOR DEVE TERMINAR AQUI -->
+						<%for(Estabelecimento emp : empresas){ %>
+							<tr>
+								<td class="read_only" align="center"><%=emp.getCnpj() %></td>
+								<td><%=emp.getRazao() %></td>
+								<td align="center"><%=emp.getEmail() %></td>
+								<td align="center"><%=emp.getNome() %></td>
+								<td align="center"> <a href="controlador?acao=inativar_empresa&id=<%=emp.getId() %>"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
+							</tr>
+						<%} %>
 						
 					</tbody>
 				</table>

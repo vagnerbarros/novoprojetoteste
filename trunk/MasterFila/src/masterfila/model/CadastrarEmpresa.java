@@ -3,7 +3,11 @@ package masterfila.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import masterfila.dominio.Perfil;
 import masterfila.entidade.Estabelecimento;
+import masterfila.entidade.Funcionario;
+import masterfila.exception.CpfExistenteException;
+import masterfila.exception.LoginExistenteException;
 import masterfila.fachada.Fachada;
 
 public class CadastrarEmpresa implements Acao {
@@ -31,7 +35,20 @@ public class CadastrarEmpresa implements Acao {
 		estab.setNome(nome);
 		estab.setRazao(razao);
 		
+		Funcionario gerente = new Funcionario();
+		gerente.setLogin(estab.getEmail());
+		gerente.setSenha(estab.getCnpj());
+		gerente.setPerfil(Perfil.GERENTE);
+		gerente.setEstabelecimento(estab);
+		
 		Fachada.getInstance().cadastroEmpresa().cadastrar(estab);
+		try {
+			Fachada.getInstance().cadastroFuncionario().cadastrar(gerente);
+		} catch (LoginExistenteException e) {
+			e.printStackTrace();
+		} catch (CpfExistenteException e) {
+			e.printStackTrace();
+		}
 		
 		return pagina;
 	}
