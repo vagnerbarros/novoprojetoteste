@@ -57,7 +57,7 @@
 				<input type="password" id="txtConfirmsenha" class="wh330 rspace17"/>
 				
 				<br>
-				<a href="javascript:validarCadastroUsuario()" class="submit">Atualizar</a>
+				<input type="submit" value="Atualizar" class="submit">
 				
 			</form>
 	
