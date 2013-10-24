@@ -35,6 +35,8 @@
 		
 		<div class="escolha_cidade_right">
 			
+			<a href="cadastro.jsp">Cadastre-se</a>
+			
 			<h2>.: Acesse o Master Fila :.</h2>
 			
 			<form class="form_cidade" method="POST" action="controlador">

@@ -40,4 +40,8 @@ public class CadastroEstabelecimento {
 	public List<Estabelecimento> listarCidadeCategoria(String cidade, String categoria) {
 		return rep.listarCidadeCategoria(cidade, categoria);
 	}
+	
+	public Estabelecimento buscarId(long id){
+		return rep.buscarPorId(id);
+	}
 }
