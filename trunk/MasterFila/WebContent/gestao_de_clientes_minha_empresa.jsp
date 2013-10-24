@@ -111,7 +111,7 @@
 								<td><%=usuario.getNome() %></td>
 								<td align="center"><%=usuario.getBairro() %></td>
 								<td align="center"><%=usuario.getLogin() %></td>
-								<td align="center"> <a href="#"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
+								<td align="center"> <a href="controlador?acao=mudar_status&id=<%=usuario.getId() %>&pagina=i"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
 							</tr>
 						<%} %>
 						

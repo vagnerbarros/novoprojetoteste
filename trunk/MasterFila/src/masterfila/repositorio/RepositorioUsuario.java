@@ -3,6 +3,7 @@ package masterfila.repositorio;
 import java.util.List;
 
 import masterfila.dao.Dao;
+import masterfila.entidade.Estabelecimento;
 import masterfila.entidade.Ficha;
 import masterfila.entidade.Usuario;
 import masterfila.util.Constants;
@@ -18,7 +19,7 @@ public class RepositorioUsuario {
 	}
 	
 	public void inserir(Usuario novo){
-		novo.setStatus(Constants.ATIVO);
+		//novo.setStatus(Constants.ATIVO);
 		dao.salvarObjeto(novo);
 	}
 	
@@ -36,6 +37,30 @@ public class RepositorioUsuario {
 	
 	public List<Usuario> listarPorEmpresaInativos(long id_empresa){
 		return (List<Usuario>) dao.criarQuery("FROM usuario WHERE id_empresa = " + id_empresa + " AND status <> '" + Constants.ATIVO + "'");
+	}
+	
+	
+	public void mudarStatus(Usuario usuario){
+		Usuario u = buscarPorId(usuario.getId());
+		if(u != null){
+			if(u.getStatus().equals(Constants.ATIVO)){
+				u.setStatus(Constants.INATIVO);
+			}
+			else if(u.getStatus().equals(Constants.INATIVO)){				
+				u.setStatus(Constants.ATIVO);
+			}
+			dao.atualizarObjeto(u);
+		}
+	}
+	
+	public Usuario buscarPorId(long id){
+		List<Usuario> lista = (List<Usuario>) dao.criarQuery("FROM usuario WHERE id = " + id);
+		if(lista != null){
+			return lista.get(0);
+		}
+		else{
+			return null;
+		} 
 	}
 	
 	public void remover(Usuario del){

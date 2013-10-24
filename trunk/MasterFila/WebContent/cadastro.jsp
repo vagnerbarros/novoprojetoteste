@@ -1,3 +1,5 @@
+<%@page import="masterfila.fachada.Fachada"%>
+<%@page import="masterfila.entidade.Estabelecimento"%>
 <%@ include file="topo.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,6 +19,10 @@
 	<%@ include file="componente_localizar_empresa.jsp"%>
 	
 	<%@ include file="menu.jsp"%>
+	
+	<%
+	List<Estabelecimento> estabelecimentos = Fachada.getInstance().cadastroEmpresa().listar();
+	%>
 	
 	<div class="limite wh700">
 			
@@ -61,6 +67,13 @@
 				
 				<input type="password" name="senha" id="txtSenha" class="wh225"/>
 				<input type="password" id="txtConfirmsenha" class="wh225"/>
+				
+				<label>Empresa</label>
+				<select name="empresa">
+					<%for(Estabelecimento est : estabelecimentos){ %>
+					<option value="<%=est.getId() %>"><%=est.getNome() %></option>
+					<%} %>
+				</select>
 				
 				<a href="javascript:validarCadastroUsuario()" class="submit">Concluir</a>
 				

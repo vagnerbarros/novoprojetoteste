@@ -13,11 +13,14 @@
 			<li> <a href="sobre.jsp">Sobre</a> </li>
 			<li> <a href="perfil.jsp">Meu Perfil</a> </li>
 			
-			<% if(funcionario.getPerfil().equals(Perfil.GERENTE)){ %>
-					<li> <a href="gestao_de_clientes_minha_empresa.jsp">Gestão de Clientes</a> </li>
-			<% } else if(funcionario.getPerfil().equals(Perfil.ADMIN)){%>
-					<li> <a href="gestao_empresa.jsp">Gestão de Empresas</a> </li>
-			<% } %>
+			<% 
+			if(funcionario != null){
+				if(funcionario.getPerfil().equals(Perfil.GERENTE)){ %>
+						<li> <a href="gestao_de_clientes_minha_empresa.jsp">Gestão de Clientes</a> </li>
+				<% } else if(funcionario.getPerfil().equals(Perfil.ADMIN)){%>
+						<li> <a href="gestao_empresa.jsp">Gestão de Empresas</a> </li>
+				<% } 
+			}%>
 		</ul>
 		
 	</div>

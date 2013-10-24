@@ -45,4 +45,8 @@ public class CadastroUsuario {
 	public List<Usuario> listarPorEmpresaInativos(Estabelecimento e){
 		return rep.listarPorEmpresaInativos(e.getId());
 	}
+	
+	public void mudarStatus(Usuario u){
+		rep.mudarStatus(u);
+	}
 }
