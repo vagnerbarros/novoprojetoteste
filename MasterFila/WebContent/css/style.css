@@ -435,9 +435,19 @@ h4{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#d9daf7',GradientType=0 ); /* IE6-9 */
 }
 
+.lbl_wel{
+	position: relative;
+	float: left;
+	color: white;
+	margin: 20px 0 0 0;
+}
 
-
-
+.link_logout{
+	position: relative;
+	float: left;
+	color: white;
+	margin: 15px 0 0 0;
+}
 
 
 
