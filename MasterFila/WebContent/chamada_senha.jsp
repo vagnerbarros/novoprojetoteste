@@ -20,7 +20,7 @@
            $.ajax({              
                   type: 'post', // O tipo de requisição
                   data: 'function=carregar', // Variáveis que serão passadas pro script Server Inside.
-                  url: 'arquivos_filas/'+id_fila[1]+'.jsp',
+                  url: 'arquivos_filas/Normal.jsp',
                   success: function(retorno){ //Caso o script obtenha sucesso ele carreda no #pannel as informações.
                     $('#content').html(retorno); 				
                   }

@@ -34,6 +34,10 @@ public class CadastroFicha {
 	public List<Ficha> listarTipoAbertas(TipoFicha tipo){
 		return rep.listarTipoAberta(tipo);
 	}
+	
+	public List<Ficha> listarAtendidas(){
+		return rep.listarAtendidas();
+	}
 
 	public void fichaChamada(Ficha ultimaFicha) {
 		ultimaFicha.setChamado(Chamado.SIM);
