@@ -80,7 +80,7 @@
 			<label class="wh150">CNPJ:</label>
 			<label class="wh300">Razão Social:</label>
 			
-			<input name="cnpj" type="text" class="wh150" maxlength="18" onkeypress="mascara(this,cnpj)" id="txtCNPJ"/>
+			<input name="cnpj" type="text" class="wh150" maxlength="18" onkeypress="mascara(this,cnp)" id="txtCNPJ"/>
 			<input name="razao" type="text" class="wh300" maxlength="100" id="txtRazao"/>
 			
 			<label class="wh300">Nome que aparecerá no Master Fila:</label>
