@@ -33,6 +33,10 @@ public class RepositorioFicha {
 		return (List<Ficha>) dao.criarQuery("FROM ficha WHERE status <> '" + Constants.INATIVO + "'");
 	}
 	
+	public List<Ficha> listarAtendidas(){
+		return (List<Ficha>) dao.criarQuery("FROM ficha WHERE chamado = '" + Chamado.SIM +"' AND status <> '" + Constants.INATIVO + "' ORDER BY data DESC");
+	}
+	
 	public void remover(Ficha del){
 		del.setStatus(Constants.INATIVO);
 		dao.atualizarObjeto(del);

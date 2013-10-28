@@ -60,6 +60,14 @@ public class Fila {
 		return retorno;
 	}
 	
+	public Ficha ultimaFichaChamada(){
+		Ficha retorno = null;
+		if(fichas != null){
+			retorno = fichas.get(proximo);	
+		}
+		return retorno;
+	}
+	
 	public Ficha atenderProximo() throws FilaVaziaException{
 		Ficha retorno = null;
 		if(fichas != null && !fichas.isEmpty() && proximo < indice){
