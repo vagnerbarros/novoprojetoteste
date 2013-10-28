@@ -22,8 +22,9 @@
 			<%
 			}
 			else{ %>
-				<label>Bem Vindo! <%=f.getNome() %></label><br><br>
-				<a href="controlador?acao=logout">Deslogar</a>
+				<label class="lbl_wel">Bem Vindo! <strong> <%=f.getNome() %> </strong> </label><br><br>
+				<div class="clr"></div>
+				<a href="controlador?acao=logout" class="link_logout">Deslogar</a>
 			<% }
 			%>
 		<div class="clr"></div>

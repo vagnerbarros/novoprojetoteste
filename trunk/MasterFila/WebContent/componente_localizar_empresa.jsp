@@ -1,3 +1,4 @@
+<!-- 
 <div class="content_busca">
 	<div class="limite">
 		<form action="" class="form_busca">
@@ -7,3 +8,4 @@
 		</form>
 	</div>
 </div>
+ -->

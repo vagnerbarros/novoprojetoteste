@@ -56,7 +56,8 @@
 				<label class="wh455">Confirmação de Senha: <span>*</span> </label>
 				<input type="password" id="txtConfirmsenha" class="wh330 rspace17"/>
 				
-				<br>
+				<div class="clr"></div>
+				
 				<input type="submit" value="Atualizar" class="submit">
 				
 			</form>

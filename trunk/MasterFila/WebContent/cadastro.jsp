@@ -68,12 +68,16 @@
 				<input type="password" name="senha" id="txtSenha" class="wh225"/>
 				<input type="password" id="txtConfirmsenha" class="wh225"/>
 				
+				<div class="clr"></div>
 				<label>Empresa</label>
-				<select name="empresa">
+				<div class="clr"></div>
+				<select name="empresa" class="wh227">
 					<%for(Estabelecimento est : estabelecimentos){ %>
 					<option value="<%=est.getId() %>"><%=est.getNome() %></option>
 					<%} %>
 				</select>
+				
+				<div class="clr"></div>
 				
 				<a href="javascript:validarCadastroUsuario()" class="submit">Concluir</a>
 				
