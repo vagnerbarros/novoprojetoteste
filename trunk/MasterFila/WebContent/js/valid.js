@@ -1,33 +1,49 @@
 function validarPreenchimento(){
 	
 	if(document.getElementById("txtCNPJ").value==""){
-		alert('Preencher CNPJ');
+		construirAlert("Prencha o CNPJ!");
 	}else if(validarCNPJ(document.getElementById("txtCNPJ").value)==false){
-		alert('CNPJ invalido!');
+		construirAlert("CNPJ Invalido!");
 	}else if(document.getElementById("txtRazao").value==""){
-		alert('Preencher Razao Social');
+		construirAlert("Prencha a Razao Social!");
 	}else if(document.getElementById("txtNomeAparecer").value==""){
-		alert('Preencher Nome que vai aparecer no MF');
+		construirAlert("Preencher Nome que vai aparecer no MF");
 	}else if(document.getElementById("txtEmail").value==""){
-		alert('Preencher Email');
+		construirAlert("Preencher Email");
 	}else if(document.getElementById("selCategoria").value=="0"){
-		alert('Selecione uma categoria');
-	}else if(form_cadastra_empresa.foto == null){
-		alert('Carregue a imagem da imagem');
-	}if(document.getElementById("txtEndereco").value==""){
-		alert('Preencher Endereço');
-	}else if(document.getElementById("sel_estado").value=="0"){
-		alert('Selecione um Estado');
-	}else if(document.getElementById("sel_cidade").value=="0"){
-		alert('Selecione uma cidade');
+		construirAlert("Selecione uma categoria");
+	}else if(!form_cadastra_empresa.foto.value){
+		construirAlert("Selecione uma imagem");
 	}else{
-		document.getElementById("form_cadastra_empresa").submit();
+			var foto = form_cadastra_empresa.foto.value;
+			extensao = (foto.substring(foto.lastIndexOf("."))).toLowerCase(); 
+			extensoes_permitidas = new Array(".gif", ".jpg", ".png");
+			permitida = false;
+				for (var i = 0; i < extensoes_permitidas.length; i++) {
+	         		if (extensoes_permitidas[i] == extensao) {
+	         			permitida = true;
+	         			break;
+	         		}
+	         	}
+				if (permitida!=true) {
+					construirAlert("Extensao do arquivo para o Banner Principal n&atilde;o &eacute; permitida.<br/>Utilize apenas .gif .png ou .jpg");
+				}else{
+					if(document.getElementById("txtEndereco").value==""){
+						construirAlert("Preencher Endereco");
+					}else if(document.getElementById("sel_estado").value=="0"){
+						construirAlert("Selecione um Estado");
+					}else if(document.getElementById("sel_cidade").value=="0"){
+						construirAlert("Selecione uma cidade");
+					}else{
+						document.getElementById("form_cadastra_empresa").submit();
+					}
+				}
 	}
-	
-	
-	
-	
-	
+}
+
+function construirAlert(msg) {
+	document.getElementById('content_alert').style.display = "block";
+	document.getElementById('lbl_msg').innerHTML = msg;
 }
 
 function validarCNPJ(cnpj) {

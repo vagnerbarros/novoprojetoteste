@@ -75,6 +75,12 @@
 		
 		<div class="blue_line"></div>
 		
+		<div class="alert" id="content_alert" style="display: none;">
+			<p><strong>Atenção!</strong> <span id="lbl_msg"></span> </p>
+		</div>
+		
+		<div class="clr"></div>
+		
 		<form method="POST" action="controlador" class="form_cadastra_empresa" name="form_cadastra_empresa" id="form_cadastra_empresa">
 			<input type="hidden" name="acao" value="cadastrar_empresa">
 			<label class="wh150">CNPJ:</label>
