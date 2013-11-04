@@ -56,6 +56,7 @@ public class GeraBanco {
             u.setNumero("Numero");
             u.setRua("Rua");
             u.setTelefone("Telefone");
+            u.setStatus(Constants.ATIVO);
             u.setEmpresa(e);
             fachada.cadastroUsuario().cadastrar(u);
             

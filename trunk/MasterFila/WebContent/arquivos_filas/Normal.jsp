@@ -1,3 +1,4 @@
+<%@page import="masterfila.util.Data"%>
 <%@page import="java.util.List"%>
 <%@page import="masterfila.util.GerenciadorArquivo"%>
 <%@page import="masterfila.entidade.Ficha"%>
@@ -36,7 +37,7 @@ Ficha ficha = fichas.get(0);
 					<%=ficha.getGuiche().getNumero() %>
 					</span>
 					
-					<span class="data_chamada"><%=ficha.getData() %> - Horário Chamada: <%=ficha.getData().getTime() %></span>
+					<span class="data_chamada"><%=Data.converterData(ficha.getData())  %> - Horário Chamada: <%=Data.converterHora(ficha.getData()) %></span>
 					
 					<div class="clr"></div>
 				</div>
