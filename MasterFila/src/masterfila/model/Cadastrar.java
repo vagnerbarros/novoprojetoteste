@@ -13,30 +13,28 @@ public class Cadastrar implements Acao{
 	@Override
 	public String executar(HttpServletRequest request, HttpServletResponse response) {
 		
-		String nome = request.getParameter("nome");
-		String cpf = request.getParameter("cpf");
-		String endereco = request.getParameter("endereco");
-		String email = request.getParameter("email");
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		String idEmp = request.getParameter("empresa");
+		String json = request.getParameter("json");
 		
-		Usuario novo = new Usuario();
-		novo.setNome(nome);
-		novo.setCpf(cpf);
-		novo.setRua(endereco);
-		novo.setBairro(email);
-		novo.setLogin(login);
-		novo.setSenha(senha);
+		Usuario novo = consumirJson(json);
 		novo.setStatus(Constants.INATIVO);
 		
-		Estabelecimento estab = Fachada.getInstance().cadastroEmpresa().buscarId(Long.parseLong(idEmp));
+		Estabelecimento estab = Fachada.getInstance().cadastroEmpresa().buscarId(Long.parseLong("1"));
 		novo.setEmpresa(estab);
-		
-		String paginaRetorno = "/cadastro_sucesso.jsp";
 		Fachada fachada = Fachada.getInstance();
 		fachada.cadastroUsuario().cadastrar(novo);
+		
+		String paginaRetorno = "/cadastro_sucesso.jsp";
 		return paginaRetorno;
 	}
-
+	
+	private Usuario consumirJson(String json){
+		
+		Usuario u = new Usuario();
+		u.setNome("nome");
+		u.setCpf("cpf");
+		u.setLogin("email");
+		u.setSenha("senha");
+		u.setRua("rua");
+		return u;
+	}
 }

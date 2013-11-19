@@ -38,6 +38,16 @@ public class CadastroUsuario {
 		return rep.logar(login, senha);
 	}
 	
+	public boolean logarAndroid(String login, String senha){
+		Usuario u = rep.logar(login, senha);
+		if(u != null){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	public List<Usuario> listarPorEmpresaAtivos(Estabelecimento e){
 		return rep.listarPorEmpresaAtivos(e.getId());
 	}
