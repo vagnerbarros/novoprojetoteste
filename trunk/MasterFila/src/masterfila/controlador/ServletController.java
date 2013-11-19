@@ -27,6 +27,7 @@ import masterfila.model.Logar;
 import masterfila.model.LogarAndroid;
 import masterfila.model.MudarStatusCliente;
 import masterfila.model.RecuperarEmail;
+import masterfila.model.RecuperarSenha;
 
 
 /**
@@ -62,6 +63,7 @@ public class ServletController extends HttpServlet {
 		mapa.put("consultar_senha", new ConsultarSenha());
 		mapa.put("logar_android", new LogarAndroid());
 		mapa.put("listar_android", new ListarEmpresasJSON());
+		mapa.put("recuperar_senha", new RecuperarSenha());
 		
 		mapa.put("erro", new Erro());
 		mapa.put("listarEmpresas", new ListarEmpresa());
