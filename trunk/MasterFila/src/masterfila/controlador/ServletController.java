@@ -39,9 +39,6 @@ public class ServletController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Acao> mapa;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public ServletController() {
 		super();
 		mapa = new HashMap<String, Acao>();
@@ -69,9 +66,6 @@ public class ServletController extends HttpServlet {
 		mapa.put("listarEmpresas", new ListarEmpresa());
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 		Acao classeAcao = buscarAcao(acao);
@@ -80,9 +74,6 @@ public class ServletController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
