@@ -3,6 +3,8 @@ package masterfila.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import masterfila.entidade.Estabelecimento;
 import masterfila.entidade.Usuario;
 import masterfila.fachada.Fachada;
@@ -29,12 +31,9 @@ public class Cadastrar implements Acao{
 	
 	private Usuario consumirJson(String json){
 		
-		Usuario u = new Usuario();
-		u.setNome("nome");
-		u.setCpf("cpf");
-		u.setLogin("email");
-		u.setSenha("senha");
-		u.setRua("rua");
+		Gson gson = new Gson();
+		Usuario u = gson.fromJson(json, Usuario.class);
+		u.setRua("rua");		
 		return u;
 	}
 }
