@@ -11,7 +11,7 @@ public class Constants {
 	
 	public static String [] listaEstados = {"Pernambuco"};
 	
-	public static String [] listaCidades = {"Caruaru", "São Caetano", "Toritama", "Santa Cruz"};
+	public static String [] listaCidades = {"Caruaru", "Recife", "Toritama", "Santa Cruz"};
 	
 	public static int getPosicaoEstado(String estado){
 		int retorno = -1;

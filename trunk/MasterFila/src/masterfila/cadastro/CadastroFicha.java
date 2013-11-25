@@ -38,6 +38,10 @@ public class CadastroFicha {
 	public List<Ficha> listarAtendidas(){
 		return rep.listarAtendidas();
 	}
+	
+	public List<Ficha> listarNaoAtendidas(){
+		return rep.listarNaoAtendidas();
+	}
 
 	public void fichaChamada(Ficha ultimaFicha) {
 		ultimaFicha.setChamado(Chamado.SIM);

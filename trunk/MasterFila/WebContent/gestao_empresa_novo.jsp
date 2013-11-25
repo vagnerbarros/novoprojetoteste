@@ -122,8 +122,9 @@
 			
 			<select class="wh225" id="sel_cidade" name="cidade">
 				<option value="0">.: Selecione :.</option>
-				<option value="caruaru">Caruaru</option>
-				<option value="recife">Recife</option>
+				<%for (String cidade : Constants.listaCidades){ %>
+					<option value="<%=cidade %>"><%=cidade %></option>
+				<%} %>
 			</select>
 			
 			<a class="submit" href="javascript:validarPreenchimento();">Cadastrar Empresa</a>

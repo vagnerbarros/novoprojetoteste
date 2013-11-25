@@ -2,12 +2,9 @@ package masterfila.util;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import masterfila.entidade.Ficha;
 import masterfila.entidade.Fila;
 import masterfila.entidade.TipoFicha;
-import masterfila.exception.FilaExistenteException;
 import masterfila.fachada.Fachada;
 
 public class CarregarDados {
@@ -20,11 +17,7 @@ public class CarregarDados {
 			Fila nova = new Fila(tipo);
 			List<Ficha> fichas = fachada.cadastroFicha().listarTipoAbertas(tipo);
 			nova.setFichas(fichas);
-			try {
-				fachada.cadastroFila().cadastrar(nova);
-			} catch (FilaExistenteException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			}
+			fachada.cadastroFila().cadastrar(nova);
 		}
 	}
 }

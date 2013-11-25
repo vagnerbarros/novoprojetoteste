@@ -77,4 +77,14 @@ public class RepositorioUsuario {
 			return null;
 		}
 	}
+
+	public Usuario buscarPorLogin(String login) {
+		List<Usuario> lista = (List<Usuario>) dao.criarQuery("FROM usuario WHERE login LIKE '" + login + "' AND status <> '" + Constants.INATIVO + "'");
+		if(lista != null){
+			return lista.get(0);
+		}
+		else{
+			return null;
+		}
+	}
 }

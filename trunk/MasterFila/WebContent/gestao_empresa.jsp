@@ -66,7 +66,7 @@
 	<%@ include file="menu.jsp"%>
 	
 	<%
-	List<Estabelecimento> empresas = Fachada.getInstance().cadastroEmpresa().listar();
+	List<Estabelecimento> empresas = Fachada.getInstance().cadastroEmpresa().listarTodas();
 	%>
 	
 	<div class="limite wh700">
@@ -91,7 +91,7 @@
 							<th>Razão Social</th>
 							<th>Email</th>
 							<th>Login</th>
-							<th>Inativar</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -110,7 +110,11 @@
 								<td><%=emp.getRazao() %></td>
 								<td align="center"><%=emp.getEmail() %></td>
 								<td align="center"><%=emp.getNome() %></td>
-								<td align="center"> <a href="controlador?acao=inativar_empresa&id=<%=emp.getId() %>"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
+								<%if(emp.getStatus().equals(Constants.ATIVO)){ %>
+									<td align="center"> <a href="controlador?acao=inativar_empresa&id=<%=emp.getId() %>"> <img alt="" src="css/img/icons/icon_inativar.png" height="16"/> </a> </td>
+								<%}else if(emp.getStatus().equals(Constants.INATIVO)){%>
+									<td align="center"> <a href="controlador?acao=ativar_empresa&id=<%=emp.getId() %>"> <img alt="" src="css/img/icons/icon_on.png" height="16"/> </a> </td>
+								<%} %>
 							</tr>
 						<%} %>
 						

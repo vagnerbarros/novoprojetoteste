@@ -59,4 +59,8 @@ public class CadastroUsuario {
 	public void mudarStatus(Usuario u){
 		rep.mudarStatus(u);
 	}
+
+	public Usuario buscarLogin(String login) {
+		return rep.buscarPorLogin(login);
+	}
 }
