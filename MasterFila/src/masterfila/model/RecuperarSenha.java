@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 public class RecuperarSenha implements Acao{
 
 	public String executar(HttpServletRequest request, HttpServletResponse response) {
-		
 		return "";
 	}
 }

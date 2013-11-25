@@ -28,6 +28,10 @@ public class CadastroEstabelecimento {
 	public List<Estabelecimento> listar(){
 		return rep.listar();
 	}
+	
+	public List<Estabelecimento> listarTodas(){
+		return rep.listarTodas();
+	}
 
 	public List<Estabelecimento> listarCategoria(String categoria) {
 		return rep.listarCategoria(categoria);
@@ -43,5 +47,9 @@ public class CadastroEstabelecimento {
 	
 	public Estabelecimento buscarId(long id){
 		return rep.buscarPorId(id);
+	}
+
+	public void ativar(Estabelecimento estab) {
+		rep.ativar(estab);
 	}
 }

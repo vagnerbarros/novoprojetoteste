@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import masterfila.model.Acao;
 import masterfila.model.AcessarSistema;
+import masterfila.model.AtivarEmpresa;
 import masterfila.model.Cadastrar;
 import masterfila.model.CadastrarEmpresa;
 import masterfila.model.ConsultarSenha;
 import masterfila.model.Editar;
 import masterfila.model.Erro;
 import masterfila.model.EscolherCategoria;
+import masterfila.model.HistoricoAndroid;
 import masterfila.model.InativaEmpresa;
 import masterfila.model.ListarEmpresa;
 import masterfila.model.ListarEmpresasJSON;
@@ -28,6 +30,7 @@ import masterfila.model.LogarAndroid;
 import masterfila.model.MudarStatusCliente;
 import masterfila.model.RecuperarEmail;
 import masterfila.model.RecuperarSenha;
+import masterfila.model.SolicitarSenhaAndroid;
 
 
 /**
@@ -56,22 +59,27 @@ public class ServletController extends HttpServlet {
 		mapa.put("logout", new LogOut());
 		mapa.put("cadastrar_empresa", new CadastrarEmpresa());
 		mapa.put("inativar_empresa", new InativaEmpresa());
+		mapa.put("ativar_empresa", new AtivarEmpresa());
 		mapa.put("mudar_status", new MudarStatusCliente());
 		mapa.put("consultar_senha", new ConsultarSenha());
 		mapa.put("logar_android", new LogarAndroid());
 		mapa.put("listar_android", new ListarEmpresasJSON());
 		mapa.put("recuperar_senha", new RecuperarSenha());
+		mapa.put("listarEmpresas", new ListarEmpresa());
+		mapa.put("historico_android", new HistoricoAndroid());
+		mapa.put("solicitar_senha", new SolicitarSenhaAndroid());
 		
 		mapa.put("erro", new Erro());
-		mapa.put("listarEmpresas", new ListarEmpresa());
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 		Acao classeAcao = buscarAcao(acao);
 		String proximaPagina = classeAcao.executar(request, response);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(proximaPagina);
-		dispatcher.forward(request, response);
+		if(!proximaPagina.equals("")){
+			RequestDispatcher dispatcher = request.getRequestDispatcher(proximaPagina);
+			dispatcher.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

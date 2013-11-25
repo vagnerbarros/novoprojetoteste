@@ -4,7 +4,6 @@ import java.util.List;
 
 import masterfila.entidade.Fila;
 import masterfila.entidade.TipoFicha;
-import masterfila.exception.FilaExistenteException;
 import masterfila.repositorio.RepositorioFila;
 
 public class CadastroFila {
@@ -15,13 +14,10 @@ public class CadastroFila {
 		this.rep = rep;
 	}
 	
-	public void cadastrar(Fila novo) throws FilaExistenteException{
+	public void cadastrar(Fila novo) {
 		boolean existeFila = rep.existeFila(novo);
 		if(!existeFila){
 			rep.inserir(novo);
-		}
-		else{
-			throw new FilaExistenteException();
 		}
 	}
 	
