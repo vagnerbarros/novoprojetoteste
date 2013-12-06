@@ -45,7 +45,7 @@ public class HistoricoAndroid implements Acao{
 			fichaObject.put("login", ficha.getCliente().getLogin());
 			fichaObject.put("numero", ficha.getNumero());
 			fichaObject.put("hora", Data.converterHora(ficha.getData()));
-			if(contador < 5){
+			if(contador < 3){
 				fichasArray.add(fichaObject);
 				contador++;
 			}

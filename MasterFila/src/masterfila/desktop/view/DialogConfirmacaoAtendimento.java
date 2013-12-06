@@ -26,6 +26,7 @@ import masterfila.entidade.Guiche;
 import masterfila.entidade.TipoFicha;
 import masterfila.exception.FilaVaziaException;
 import masterfila.fachada.Fachada;
+import masterfila.util.CarregarDados;
 import masterfila.util.GerenciadorArquivo;
 import masterfila.util.Sessao;
 
@@ -205,6 +206,8 @@ public class DialogConfirmacaoAtendimento extends JDialog implements ActionListe
 
 	private void chamarProximo() throws FilaVaziaException{
 
+		CarregarDados.go();
+		fila = Fachada.getInstance().cadastroFila().buscarFila(tipoFicha);
 		ultimaFicha = fila.atenderProximo();
 		gerenciador.adicionar(ultimaFicha);
 		ultimaFicha.setAtendente(Sessao.getFuncionario());

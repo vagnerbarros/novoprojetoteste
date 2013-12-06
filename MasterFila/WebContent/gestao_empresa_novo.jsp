@@ -98,12 +98,11 @@
 			<label class="wh455">Categoria:</label>
 			<select id="selCategoria" name="categoria">
 				<option value="0">.: Selecione :.</option>
-				<option value="consultorio">Consultório Médico</option>
-				<option value="cartorio">Cartório</option>
-				<option value="reparticao">Repartição Pública</option>
-				<option value="prefeitura">Prefeitura e setores vinculados</option>
-				<option value="bancos">Agência Bancária</option>
-				<option value="outros">Outros</option>
+				<option value="Consultório Médico">Consultório Médico</option>
+				<option value="Cartório">Cartório</option>
+				<option value="Repartição Pública">Repartição Pública</option>
+				<option value="Prefeitura e setores vinculados">Prefeitura e setores vinculados</option>
+				<option value="Agência Bancária">Agência Bancária</option>
 			</select>
 		
 			<label class="wh455">Foto da empresa:</label>
