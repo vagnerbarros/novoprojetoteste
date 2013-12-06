@@ -19,6 +19,9 @@ public class CadastroFila {
 		if(!existeFila){
 			rep.inserir(novo);
 		}
+		else{
+			rep.atualizar(novo);
+		}
 	}
 	
 	public void atualizar(Fila atual){
